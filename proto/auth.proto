@@ -10,6 +10,8 @@ service AuthService {
     rpc Remove (RemoveRequest) returns (RemoveResponse) {}
     rpc GetUser (GetUserRequest) returns (GetUserResponse) {}
     rpc Recovery (RecoveryRequest) returns (RecoveryResponse) {}
+    rpc ChangePassword (ChangePasswordRequest) returns (ChangePasswordResponse) {}
+    rpc VerifyCode (VerifyCodeRequest) returns (VerifyCodeResponse) {}
 }
 
 // Register
@@ -101,6 +103,34 @@ message RecoveryRequest {
 }
 
 message RecoveryResponse {
+    int32 status = 1;
+    repeated string error = 2;
+}
+
+
+// Verify Code
+
+message VerifyCodeRequest {
+    string email = 1;
+    string code = 2;
+}
+
+message VerifyCodeResponse {
+    int32 status = 1;
+    repeated string error = 2;
+}
+
+
+// Change Password
+
+message ChangePasswordRequest {
+    string email = 1;
+    string code = 2;
+    string newPassword = 3;
+    string confirmPassword = 4;
+}
+
+message ChangePasswordResponse {
     int32 status = 1;
     repeated string error = 2;
 }
