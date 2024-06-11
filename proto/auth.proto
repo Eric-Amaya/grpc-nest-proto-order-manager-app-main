@@ -9,6 +9,7 @@ service AuthService {
     rpc Edit (EditRequest) returns (EditResponse) {}
     rpc Remove (RemoveRequest) returns (RemoveResponse) {}
     rpc GetUser (GetUserRequest) returns (GetUserResponse) {}
+    rpc Recovery (RecoveryRequest) returns (RecoveryResponse) {}
 }
 
 // Register
@@ -91,4 +92,15 @@ message User {
     int32 id = 1;
     string email = 2;
     string role = 3;
+}
+
+// Recovery
+
+message RecoveryRequest {
+    string email = 1;
+}
+
+message RecoveryResponse {
+    int32 status = 1;
+    repeated string error = 2;
 }
