@@ -7,12 +7,20 @@ service OrderService {
   rpc GetUser (GetUserRequest) returns (GetUserResponse) {}
   rpc GetOrder (GetOrderRequest) returns (GetOrderResponse) {}
   rpc GetAllOrders (GetAllOrdersRequest) returns (GetAllOrdersResponse) {}
+  rpc CreateTable (CreateTableRequest) returns (CreateTableResponse) {}
+  rpc GetAllTables (GetAllTablesRequest) returns (GetAllTablesResponse) {}
+  rpc GetTablesByName (GetTablesByNameRequest) returns (GetTablesByNameResponse) {}
+  rpc UpdateTableState (UpdateTableStateRequest) returns (UpdateTableStateResponse) {}
+  rpc CreateSale (CreateSaleRequest) returns (CreateSaleResponse) {}
+  rpc GetAllSales (GetAllSalesRequest) returns (GetAllSalesResponse) {}
+  rpc GetSalesByUser (GetSalesByUserRequest) returns (GetSalesByUserResponse) {}
+  rpc GetSalesByDate (GetSalesByDateRequest) returns (GetSalesByDateResponse) {}
 }
 
 message CreateOrderRequest {
   repeated OrderItem products = 1;
   int32 userId = 2;
-  int32 tableNumber = 3;
+  int32 nameTable = 3;
 }
 
 message OrderItem {
@@ -63,8 +71,126 @@ message User {
 message Order {
   int32 id = 1;
   int32 userId = 2;
-  int32 tableNumber = 3;
+  Table table = 3;
   int32 totalPrice = 4;
   repeated OrderItem items = 5;
   User user = 6;
+}
+
+// Table
+
+message Table {
+  int32 id = 1;
+  string name = 2;
+  int32 quantity = 3;
+  string state = 4;
+}
+
+// Create Table
+
+message CreateTableRequest {
+  string name = 1;
+  int32 quantity = 2;
+  string state = 3;
+}
+
+message CreateTableResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+}
+
+// Get All Tables
+
+message GetAllTablesRequest {}
+
+message GetAllTablesResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+  repeated Table tables = 3;
+}
+
+// Get Tables by Name
+
+message GetTablesByNameRequest {
+  string name = 1;
+}
+
+message GetTablesByNameResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+  repeated Table tables = 3;
+}
+
+// Update table state 
+
+message UpdateTableStateRequest {
+  int32 id = 1;
+  int32 quantity = 2;
+  string state = 3;
+}
+
+message UpdateTableStateResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+}
+
+// Sale
+
+message Sale {
+  int32 id = 1;
+  string userName = 2;
+  string tableName = 3;
+  string date = 4;
+  int32 tip = 5;
+  Order order = 6;
+}
+
+// Create Sale
+
+message CreateSaleRequest {
+  string userName = 2;
+  string tableName = 3;
+  string date = 4;
+  int32 tip = 5;
+  Order order = 6;
+}
+
+message CreateSaleResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+}
+
+
+// Get All Sales
+
+message GetAllSalesRequest {}
+
+message GetAllSalesResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+  repeated Sale sales = 3;
+}
+
+// Get Sales by User
+
+message GetSalesByUserRequest {
+  string userName = 1;
+}
+
+message GetSalesByUserResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+  repeated Sale sales = 3;
+}
+
+// Get Sales by Date
+
+message GetSalesByDateRequest {
+  string date = 1;
+}
+
+message GetSalesByDateResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+  repeated Sale sales = 3;
 }
