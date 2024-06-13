@@ -142,18 +142,19 @@ message Sale {
   string tableName = 3;
   string date = 4;
   int32 tip = 5;
-  Order order = 6;
+  int32 totalPrice = 6;
+  Order order = 7;
 }
 
 // Create Sale
 
 message CreateSaleRequest {
-  string userName = 2;
-  string tableName = 3;
-  string date = 4;
-  int32 tip = 5;
-  int32 totalPrice = 6;
-  repeated OrderItem items = 7;
+  string userName = 1;
+  string tableName = 2;
+  string date = 3;
+  int32 tip = 4;
+  int32 totalPrice = 5;
+  Order order = 6;
 }
 
 message CreateSaleResponse {
