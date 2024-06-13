@@ -118,7 +118,7 @@ message GetTablesByNameRequest {
 message GetTablesByNameResponse {
   int32 status = 1;
   repeated string errors = 2;
-  repeated Table tables = 3;
+  Table table = 3;
 }
 
 // Update table state 
