@@ -143,7 +143,7 @@ message Sale {
   string date = 4;
   int32 tip = 5;
   int32 totalPrice = 6;
-  Order order = 7;
+  repeated OrderItem orders = 7;
 }
 
 // Create Sale
@@ -154,7 +154,7 @@ message CreateSaleRequest {
   string date = 3;
   int32 tip = 4;
   int32 totalPrice = 5;
-  Order order = 6;
+  repeated OrderItem orders = 6;
 }
 
 message CreateSaleResponse {
