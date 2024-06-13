@@ -20,7 +20,7 @@ service OrderService {
 message CreateOrderRequest {
   repeated OrderItem products = 1;
   int32 userId = 2;
-  int32 nameTable = 3;
+  string nameTable = 3;
 }
 
 message OrderItem {
