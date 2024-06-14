@@ -66,6 +66,7 @@ message User {
   int32 id = 1;
   string email = 2;
   string role = 3;
+  string userName = 4;
 }
 
 message Order {
@@ -143,7 +144,7 @@ message Sale {
   string date = 4;
   int32 tip = 5;
   int32 totalPrice = 6;
-  repeated OrderItem orders = 7;
+  repeated OrderItem products = 7;
 }
 
 // Create Sale
@@ -154,7 +155,7 @@ message CreateSaleRequest {
   string date = 3;
   int32 tip = 4;
   int32 totalPrice = 5;
-  repeated OrderItem orders = 6;
+  repeated OrderItem products = 6;
 }
 
 message CreateSaleResponse {
