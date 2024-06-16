@@ -21,6 +21,7 @@ message CreateOrderRequest {
   repeated OrderItem products = 1;
   int32 userId = 2;
   string nameTable = 3;
+  string email = 4;
 }
 
 message OrderItem {
@@ -76,6 +77,7 @@ message Order {
   int32 totalPrice = 4;
   repeated OrderItem items = 5;
   User user = 6;
+  string email = 7;
 }
 
 // Table
