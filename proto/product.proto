@@ -102,7 +102,7 @@ message FindAllResponse {
   repeated Product products = 3;
 }
 
-// FindByName 
+// FinByName 
 
 message FindByNameRequest {
   string name =1;
@@ -114,7 +114,7 @@ message FindByNameResponse {
   repeated Product products = 3;
 }
 
-// DeleteProducts
+// DeleteProduct
 
 message DeleteProductRequest {
   int32 id = 1;
