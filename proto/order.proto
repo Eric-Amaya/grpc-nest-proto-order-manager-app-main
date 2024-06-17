@@ -27,6 +27,10 @@ message CreateOrderRequest {
 message OrderItem {
   int32 productId = 1;
   int32 quantity = 2;
+  string modifications = 3;
+  string productName = 4;
+  int32 pricePerUnit = 5;
+  int32 totalPrice = 6;
 }
 
 message CreateOrderResponse {
