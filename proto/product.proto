@@ -98,7 +98,7 @@ message FindByCategoryRequest {
 
 message FindByCategoryResponse {
   int32 status = 1;
-  repeated string error = 2
+  repeated string error = 2;
   repeated Product products = 3;
 }
 
