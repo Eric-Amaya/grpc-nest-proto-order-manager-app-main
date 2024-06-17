@@ -102,7 +102,7 @@ message FindAllResponse {
   repeated Product products = 3;
 }
 
-// FindbyName 
+// FindByName 
 
 message FindByNameRequest {
   string name =1;
