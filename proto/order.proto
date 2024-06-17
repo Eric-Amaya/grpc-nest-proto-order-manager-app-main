@@ -15,6 +15,7 @@ service OrderService {
   rpc GetAllSales (GetAllSalesRequest) returns (GetAllSalesResponse) {}
   rpc GetSalesByUser (GetSalesByUserRequest) returns (GetSalesByUserResponse) {}
   rpc GetSalesByDate (GetSalesByDateRequest) returns (GetSalesByDateResponse) {}
+  rpc DeleteOrderItem (DeleteOrderItemRequest) returns (DeleteOrderItemResponse) {}
 }
 
 message CreateOrderRequest {
@@ -205,3 +206,14 @@ message GetSalesByDateResponse {
   repeated Sale sales = 3;
 }
 
+// Delete OrderItem from an Order
+
+message DeleteOrderItemRequest {
+  int32 orderId = 1;
+  int32 productId = 2;
+}
+
+message DeleteOrderItemResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+}
