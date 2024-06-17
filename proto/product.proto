@@ -70,10 +70,7 @@ message DecreaseStockResponse {
 
 message UpdateProductRequest {
   int32 productId = 1;
-  string name = 2;
-  string description = 3;
-  float price = 4;
-  int32 quantity = 5;
+  Product product = 2;
 }
 
 message UpdateProductResponse {
@@ -85,9 +82,11 @@ message UpdateProductResponse {
 message Product {
   int32 id = 1;
   string name = 2;
-  string description = 3;
-  float price = 4;
-  int32 quantity = 5;
+  string sku = 3;
+  int32 stock = 4;
+  int32 price = 5;
+  string category = 6;
+  string description = 7;
 }
 
 // FindByCategory
@@ -105,6 +104,7 @@ message FindByCategoryResponse {
 // FindAll
 
 message FindAllRequest {
+  
 }
 
 message FindAllResponse {
