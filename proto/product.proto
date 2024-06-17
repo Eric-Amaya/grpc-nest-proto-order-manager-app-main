@@ -60,3 +60,67 @@ message DecreaseStockResponse {
   int32 status = 1;
   repeated string error = 2;
 }
+
+// UpdateProduct
+
+message UpdateProductRequest {
+  int32 productId = 1;
+  string name = 2;
+  string description = 3;
+  float price = 4;
+  int32 quantity = 5;
+}
+
+message UpdateProductResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  Product updatedProduct = 3;
+}
+
+message Product {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  float price = 4;
+  int32 quantity = 5;
+}
+
+// FindByCategory
+
+message FindByCategoryResponse {
+  repeated Product products = 1;
+}
+
+// FindAll
+
+message FindAllRequest {
+}
+
+message FindAllResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated Product products = 3;
+}
+
+// FindByName 
+
+message FindByNameRequest {
+  string name =1;
+}
+
+message FindByNameResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated Product products = 3;
+}
+
+// DeleteProduct
+
+message DeleteProductRequest {
+  int32 id = 1;
+}
+
+message DeleteProductResponse {
+  int32 status = 1;
+  repeated string error = 2;
+}
