@@ -6,8 +6,13 @@ option go_package = ".pkg/pb";
 
 service ProductService {
   rpc CreateProduct (CreateProductRequest) returns (CreateProductResponse) {}
-  rpc FindOne (FindOneRequest) returns (FindOneResponse) {}
   rpc DecreaseStock (DecreaseStockRequest) returns (DecreaseStockResponse) {}
+  rpc FindOne (FindOneRequest) returns (FindOneResponse) {}
+  rpc FindAll (FindAllRequest) returns (FindAllResponse) {}
+  rpc FindByName (FindByNameRequest) returns (FindByNameResponse) {}
+  rpc FindByCategory (FindByCategoryRequest) returns (FindByCategoryResponse) {}
+  rpc DeleteProduct (DeleteProductRequest) returns (DeleteProductResponse) {}
+  rpc UpdateProduct (UpdateProductRequest) returns (UpdateProductResponse) {}
 }
 
 // CreateProduct
@@ -56,7 +61,6 @@ message DecreaseStockRequest {
   int32 orderId = 2;
 }
 
-//comentario
 message DecreaseStockResponse {
   int32 status = 1;
   repeated string error = 2;
@@ -66,10 +70,7 @@ message DecreaseStockResponse {
 
 message UpdateProductRequest {
   int32 productId = 1;
-  string name = 2;
-  string description = 3;
-  float price = 4;
-  int32 quantity = 5;
+  Product product = 2;
 }
 
 message UpdateProductResponse {
@@ -81,20 +82,29 @@ message UpdateProductResponse {
 message Product {
   int32 id = 1;
   string name = 2;
-  string description = 3;
-  float price = 4;
-  int32 quantity = 5;
+  string sku = 3;
+  int32 stock = 4;
+  int32 price = 5;
+  string category = 6;
+  string description = 7;
 }
 
 // FindByCategory
 
+message FindByCategoryRequest {
+  string category = 1;
+}
+
 message FindByCategoryResponse {
-  repeated Product products = 1;
+  int32 status = 1;
+  repeated string error = 2;
+  repeated Product products = 3;
 }
 
 // FindAll
 
 message FindAllRequest {
+  
 }
 
 message FindAllResponse {
@@ -106,7 +116,7 @@ message FindAllResponse {
 // FindByName 
 
 message FindByNameRequest {
-  string name =1;
+  string name = 1;
 }
 
 message FindByNameResponse {

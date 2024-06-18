@@ -84,7 +84,6 @@ message UpdateOrderRequest {
 message UpdateOrderResponse {
   int32 status = 1;
   repeated string errors = 2;
-  Order order = 3;
 }
 
 message User {
@@ -238,3 +237,4 @@ message DeleteOrderItemResponse {
   int32 status = 1;
   repeated string errors = 2;
 }
+
