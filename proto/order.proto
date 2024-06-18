@@ -69,6 +69,24 @@ message GetAllOrdersResponse {
   repeated Order orders = 3;
 }
 
+// EDITE AN ORDER
+
+// Update Order
+
+message UpdateOrderRequest {
+  int32 orderId = 1;
+  repeated OrderItem products = 2;
+  int32 userId = 3;
+  string nameTable = 4;
+  string email = 5;
+}
+
+message UpdateOrderResponse {
+  int32 status = 1;
+  repeated string errors = 2;
+  Order order = 3;
+}
+
 message User {
   int32 id = 1;
   string email = 2;
@@ -219,19 +237,4 @@ message DeleteOrderItemRequest {
 message DeleteOrderItemResponse {
   int32 status = 1;
   repeated string errors = 2;
-}
-
-// Update Order
-
-message UpdateOrderRequest {
-  int32 orderId = 1;
-  int32 userId = 2;
-  string nameTable = 3;
-  string email = 4;
-}
-
-message UpdateOrderResponse {
-  int32 status = 1;
-  repeated string errors = 2;
-  Order order = 3;
 }
