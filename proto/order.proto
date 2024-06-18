@@ -93,6 +93,7 @@ message Table {
   string name = 2;
   int32 quantity = 3;
   string state = 4;
+  int32 activeOrderId = 5;
 }
 
 // Create Table
