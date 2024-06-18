@@ -137,6 +137,7 @@ message UpdateTableStateRequest {
   int32 id = 1;
   int32 quantity = 2;
   string state = 3;
+  int32 activeOrderId = 4;
 }
 
 message UpdateTableStateResponse {
